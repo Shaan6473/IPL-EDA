@@ -1,15 +1,9 @@
 import streamlit as st
 import homePage
 import exploratoryDataAnalysis
-import playerAnalysis
-import batter_vs_bowlerAnalysis
-import teamAnalysis
-#import team_vs_teamAnalysis
-#import scorePrediction
-#import winnerPrediction
-
-import datasetPreprocessing
-import scrollToTop
+import ipl_GenAI
+#import datasetPreprocessing
+#import scrollToTop
 
 
 
@@ -32,12 +26,7 @@ st.markdown(
 PAGES = {
     "HOME": homePage,
     "Exploratory Data Analysis": exploratoryDataAnalysis,
-    "Team Analysis": teamAnalysis,
-    "Batter v/s Bowler": batter_vs_bowlerAnalysis,
-    "Player Analysis": playerAnalysis,
-    #"Team v/s Team": team_vs_teamAnalysis,
-    #"Predict Score": scorePrediction,
-    #"Predict Win Probability": winnerPrediction
+    "Query Bot": ipl_GenAI
 }
 
 
