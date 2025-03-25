@@ -5,8 +5,6 @@ import ipl_GenAI
 #import datasetPreprocessing
 #import scrollToTop
 
-google_api_key = st.secrets["GOOGLE_API_KEY"]
-langchain_api_key = st.secrets["LANGCHAIN_API_KEY"]
 
 st.set_page_config(
     page_title="IPL ANALYSIS",
