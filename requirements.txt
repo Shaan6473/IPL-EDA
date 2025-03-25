@@ -6,5 +6,4 @@ plotly
 langchain-community
 langchain-google-genai
 langchain-core
-faiss
 
