@@ -1,0 +1,6 @@
+match_id ,inning ,batting_team                ,bowling_team                ,over ,ball ,batter                  ,bowler                  ,non_striker             ,batsman_runs ,extra_runs ,total_runs ,extras_type ,is_wicket ,player_dismissed        ,dismissal_kind        ,fielder
+335982,1,Kolkata Knight Riders       ,Royal Challengers Bangalore ,0,1,SC Ganguly              ,P Kumar                 ,BB McCullum             ,0,1,1,legbyes     ,0,NA                      ,NA                    ,NA
+335982,1,Kolkata Knight Riders       ,Royal Challengers Bangalore ,0,2,BB McCullum             ,P Kumar                 ,SC Ganguly              ,0,0,0,            ,0,NA                      ,NA                    ,NA
+335982,1,Kolkata Knight Riders       ,Royal Challengers Bangalore ,0,3,BB McCullum             ,P Kumar                 ,SC Ganguly              ,0,1,1,wides       ,0,NA                      ,NA                    ,NA
+335982,1,Kolkata Knight Riders       ,Royal Challengers Bangalore ,0,4,BB McCullum             ,P Kumar                 ,SC Ganguly              ,0,0,0,            ,0,NA                      ,NA                    ,NA
+335982,1,Kolkata Knight Riders       ,Royal Challengers Bangalore ,0,5,BB McCullum             ,P Kumar                 ,SC Ganguly              ,0,0,0,            ,0,NA                      ,NA                    ,NA
