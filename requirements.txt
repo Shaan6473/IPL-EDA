@@ -7,3 +7,4 @@ langchain-community
 langchain-google-genai
 langchain-core
 faiss-cpu==1.8.0
+faiss-gpu==1.8.0
