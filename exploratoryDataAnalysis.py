@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-from datasetPreprocessing import new_matchesDF, new_deliveriesDF
+from datasetPreprocessing import new_matchesDF #,new_deliveriesDF
 
 
 def app():
@@ -608,7 +608,7 @@ def app():
     #####       Overwise Average Runs For Each Team Since 2008      #######
     #######################################################################
     # with st.expander('👉 Overwise Average Runs For Each Team Since 2008'):
-    #     corr = new_deliveriesDF.pivot_table(values='total_runs',
+    #     corr = .pivot_table(values='total_runs',
     #                                         index='batting_team',
     #                                         columns='over',
     #                                         aggfunc='mean').fillna(0) * 6
