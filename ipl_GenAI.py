@@ -29,6 +29,8 @@ def app():
 
     # Load environment variables
     load_dotenv()
+    google_api_key = st.secrets["GOOGLE_API_KEY"]
+    langchain_api_key = st.secrets["LANGCHAIN_API_KEY"]
 
     # Load CSV file and display DataFrame in Streamlit
     loader = CSVLoader('./matches_2008-2024.csv')
