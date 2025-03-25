@@ -9,7 +9,7 @@ from datasetPreprocessing import new_matchesDF, new_deliveriesDF
 
 def app():
     st.markdown('''
-    <h1 style='text-align:center; color: #e8630a;'><strong>🌟EXPLORATORY DATA ANALYSIS🌟</strong></h1>
+    <h1 style='text-align:center; color: #e8630a;'><strong>📊EXPLORATORY DATA ANALYSIS📊</strong></h1>
     <hr style="border-top: 3px solid #e8630a;">
     ''', unsafe_allow_html=True)
 
@@ -31,18 +31,18 @@ def app():
     #################################################################
     ################## DELEVERY DATASET LOADING #####################
     #################################################################
-    with st.expander('👉 Deliveries Dataset: 2008 - 2024'):
-        st.write(new_deliveriesDF.head(5))
+    # with st.expander('👉 Deliveries Dataset: 2008 - 2024'):
+    #     st.write(new_deliveriesDF.head(5))
 
-        if st.checkbox(label="View Code", key=1):
-            st.code('''
-                        new_deliveriesDF = pd.read_csv(
-                            'deliveries_2008-2024.csv')
+    #     if st.checkbox(label="View Code", key=1):
+    #         st.code('''
+    #                     new_deliveriesDF = pd.read_csv(
+    #                         'deliveries_2008-2024.csv')
 
-                        new_deliveriesDF.columns = new_deliveriesDF.columns.str.strip()
+    #                     new_deliveriesDF.columns = new_deliveriesDF.columns.str.strip()
 
-                        st.write(new_deliveriesDF.head(5))
-                    ''', language='python')
+    #                     st.write(new_deliveriesDF.head(5))
+    #                 ''', language='python')
 
     #################################################################
     ################## MATCHES PER SEASON ###########################
@@ -425,221 +425,221 @@ def app():
     ############################################################################
     ################## Top 20 Players With Most Runs ###########################
     ############################################################################
-    with st.expander('👉 Top 20 Players With Most Runs'):
-        top_20_run_scorer = new_deliveriesDF.groupby(
-            'batter')['batsman_runs'].sum().sort_values(ascending=False)[:20]
+    # with st.expander('👉 Top 20 Players With Most Runs'):
+    #     top_20_run_scorer = new_deliveriesDF.groupby(
+    #         'batter')['batsman_runs'].sum().sort_values(ascending=False)[:20]
 
-        top_20_run_scorer_df = top_20_run_scorer.reset_index()
-        top_20_run_scorer_df.columns = ['Player', 'Runs']
+    #     top_20_run_scorer_df = top_20_run_scorer.reset_index()
+    #     top_20_run_scorer_df.columns = ['Player', 'Runs']
 
-        fig = px.bar(
-            top_20_run_scorer_df,
-            x='Runs',
-            y='Player',
-            labels={
-                'Player': 'Player',
-                'Runs': 'Total Runs'
-            },
-            color='Player',
-            text='Runs',
-            color_discrete_sequence=px.colors.qualitative.Safe
-        )
+    #     fig = px.bar(
+    #         top_20_run_scorer_df,
+    #         x='Runs',
+    #         y='Player',
+    #         labels={
+    #             'Player': 'Player',
+    #             'Runs': 'Total Runs'
+    #         },
+    #         color='Player',
+    #         text='Runs',
+    #         color_discrete_sequence=px.colors.qualitative.Safe
+    #     )
 
-        fig.update_layout(
-            height=600,
-            width=800,
-            yaxis_title='Player',
-            xaxis_title='Total Runs',
-            yaxis=dict(categoryorder='total ascending')
-        )
+    #     fig.update_layout(
+    #         height=600,
+    #         width=800,
+    #         yaxis_title='Player',
+    #         xaxis_title='Total Runs',
+    #         yaxis=dict(categoryorder='total ascending')
+    #     )
 
-        fig.update_traces(textposition='outside')
+    #     fig.update_traces(textposition='outside')
 
-        st.plotly_chart(fig, transparent=True, use_container_width=True)
+    #     st.plotly_chart(fig, transparent=True, use_container_width=True)
 
-        if st.checkbox(label="View Code", key=9):
-            st.code('''
-                        top_20_run_scorer = new_deliveriesDF.groupby(
-                                            'batter')['batsman_runs'].sum().sort_values(ascending=False)[:20]
+    #     if st.checkbox(label="View Code", key=9):
+    #         st.code('''
+    #                     top_20_run_scorer = new_deliveriesDF.groupby(
+    #                                         'batter')['batsman_runs'].sum().sort_values(ascending=False)[:20]
 
-                        top_20_run_scorer_df = top_20_run_scorer.reset_index()
-                        top_20_run_scorer_df.columns = ['Player', 'Runs']
+    #                     top_20_run_scorer_df = top_20_run_scorer.reset_index()
+    #                     top_20_run_scorer_df.columns = ['Player', 'Runs']
 
-                        fig = px.bar(
-                            top_20_run_scorer_df,
-                            x='Runs',
-                            y='Player',
-                            labels={
-                                'Player': 'Player',
-                                'Runs': 'Total Runs'
-                            },
-                            color='Player',
-                            text='Runs',
-                            color_discrete_sequence=px.colors.qualitative.Safe
-                        )
+    #                     fig = px.bar(
+    #                         top_20_run_scorer_df,
+    #                         x='Runs',
+    #                         y='Player',
+    #                         labels={
+    #                             'Player': 'Player',
+    #                             'Runs': 'Total Runs'
+    #                         },
+    #                         color='Player',
+    #                         text='Runs',
+    #                         color_discrete_sequence=px.colors.qualitative.Safe
+    #                     )
 
-                        fig.update_layout(
-                            height=600,
-                            width=800,
-                            yaxis_title='Player',
-                            xaxis_title='Total Runs',
-                            yaxis=dict(categoryorder='total ascending')
-                        )
+    #                     fig.update_layout(
+    #                         height=600,
+    #                         width=800,
+    #                         yaxis_title='Player',
+    #                         xaxis_title='Total Runs',
+    #                         yaxis=dict(categoryorder='total ascending')
+    #                     )
 
-                        fig.update_traces(textposition='outside')
+    #                     fig.update_traces(textposition='outside')
 
-                        st.plotly_chart(fig, transparent=True,
-                                        use_container_width=True)
+    #                     st.plotly_chart(fig, transparent=True,
+    #                                     use_container_width=True)
 
-        ''', language='python')
+    #     ''', language='python')
 
     #############################################################################
     ###############           MOST EXPENSIVE BOWLERS              ###############
     #############################################################################
 
-    def plot_bar(data, title, xlabel, ylabel, col_width=2, rows=1):
-        fig = plt.figure(figsize=(10, 6))
+    # def plot_bar(data, title, xlabel, ylabel, col_width=2, rows=1):
+    #     fig = plt.figure(figsize=(10, 6))
 
-        ax = sns.barplot(x='bowler',
-                         y='total_runs',
-                         data=data[:10],
-                         palette='viridis',
-                         hue=None,
-                         legend=False)
+    #     ax = sns.barplot(x='bowler',
+    #                      y='total_runs',
+    #                      data=data[:10],
+    #                      palette='viridis',
+    #                      hue=None,
+    #                      legend=False)
 
-        plt.xticks(rotation=90,
-                   fontsize=10)
+    #     plt.xticks(rotation=90,
+    #                fontsize=10)
 
-        plt.title(title)
-        plt.xticks(rotation=45,
-                   ha='right')
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
+    #     plt.title(title)
+    #     plt.xticks(rotation=45,
+    #                ha='right')
+    #     plt.xlabel(xlabel)
+    #     plt.ylabel(ylabel)
 
-        for p in ax.patches:
-            ax.annotate(format(p.get_height(), '.1f'),
-                        (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha='center', va='center',
-                        xytext=(0, 10),
-                        textcoords='offset points')
+    #     for p in ax.patches:
+    #         ax.annotate(format(p.get_height(), '.1f'),
+    #                     (p.get_x() + p.get_width() / 2., p.get_height()),
+    #                     ha='center', va='center',
+    #                     xytext=(0, 10),
+    #                     textcoords='offset points')
 
-        st.pyplot(fig, transparent=True)
+    #     st.pyplot(fig, transparent=True)
 
-    with st.expander("👉 Most Expensive Bowler"):
-        st.write("> Overall Most Expensive Bowler:")
-        col1, col2 = st.columns([3, 2])
+    # with st.expander("👉 Most Expensive Bowler"):
+    #     st.write("> Overall Most Expensive Bowler:")
+    #     col1, col2 = st.columns([3, 2])
 
-        with col1:
-            overall = new_deliveriesDF.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
-                                                                                                            ascending=False).head(30)
-            plot_bar(overall,
-                     'Overall Most Expensive Bowler',
-                     'Bowler',
-                     'Total Runs')
+    #     with col1:
+    #         overall = new_deliveriesDF.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
+    #                                                                                                         ascending=False).head(30)
+    #         plot_bar(overall,
+    #                  'Overall Most Expensive Bowler',
+    #                  'Bowler',
+    #                  'Total Runs')
 
-        with col2:
-            st.dataframe(overall,
-                         width=400,
-                         height=400)
+    #     with col2:
+    #         st.dataframe(overall,
+    #                      width=400,
+    #                      height=400)
 
-        st.write('> Most Expensive Bowler in 1st Over:')
-        col3, col4 = st.columns([3, 2])
+    #     st.write('> Most Expensive Bowler in 1st Over:')
+    #     col3, col4 = st.columns([3, 2])
 
-        with col3:
-            first_over = new_deliveriesDF[new_deliveriesDF['over'] == 0]
+    #     with col3:
+    #         first_over = new_deliveriesDF[new_deliveriesDF['over'] == 0]
 
-            group = first_over.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
-                                                                                                    ascending=False).head(30)
-            plot_bar(group,
-                     'Most Expensive Bowler in 1st Over',
-                     'Bowler',
-                     'Total Runs')
+    #         group = first_over.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
+    #                                                                                                 ascending=False).head(30)
+    #         plot_bar(group,
+    #                  'Most Expensive Bowler in 1st Over',
+    #                  'Bowler',
+    #                  'Total Runs')
 
-        with col4:
-            st.dataframe(group,
-                         width=400,
-                         height=400)
+    #     with col4:
+    #         st.dataframe(group,
+    #                      width=400,
+    #                      height=400)
 
-        st.write('> Most Expensive Bowler in 20th Over:')
-        col5, col6 = st.columns([3, 2])
+    #     st.write('> Most Expensive Bowler in 20th Over:')
+    #     col5, col6 = st.columns([3, 2])
 
-        with col5:
-            twenty_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
+    #     with col5:
+    #         twenty_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
 
-            group = twenty_over.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
-                                                                                                     ascending=False).head(30)
-            plot_bar(group,
-                     'Most Expensive Bowler in 20th Over',
-                     'Bowler',
-                     'Total Runs')
+    #         group = twenty_over.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
+    #                                                                                                  ascending=False).head(30)
+    #         plot_bar(group,
+    #                  'Most Expensive Bowler in 20th Over',
+    #                  'Bowler',
+    #                  'Total Runs')
 
-        with col6:
-            st.dataframe(group,
-                         width=400,
-                         height=400)
+    #     with col6:
+    #         st.dataframe(group,
+    #                      width=400,
+    #                      height=400)
 
-        if st.checkbox(label="View Code", key=10):
-            st.code('''
-                        overall = new_deliveriesDF.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
-                                                                                                                                    ascending=False).head(30)
+    #     if st.checkbox(label="View Code", key=10):
+    #         st.code('''
+    #                     overall = new_deliveriesDF.groupby('bowler')['total_runs'].agg('sum').reset_index().sort_values('total_runs',
+    #                                                                                                                                 ascending=False).head(30)
 
-                        fig = plt.figure(figsize=(10, 6))
+    #                     fig = plt.figure(figsize=(10, 6))
 
-                        top_bowlers = overall.head(10)
+    #                     top_bowlers = overall.head(10)
 
-                        ax = sns.barplot(x='bowler',
-                                        y='total_runs',
-                                        data=top_bowlers,
-                                        palette='viridis')
+    #                     ax = sns.barplot(x='bowler',
+    #                                     y='total_runs',
+    #                                     data=top_bowlers,
+    #                                     palette='viridis')
 
-                        plt.xticks(rotation=90,
-                                    fontsize=10)
+    #                     plt.xticks(rotation=90,
+    #                                 fontsize=10)
 
-                        ax.bar_label(ax.containers[0])
+    #                     ax.bar_label(ax.containers[0])
 
-                        plt.title('Overall Most Expensive Bowler')
-                        plt.xlabel('Bowler')
-                        plt.ylabel('Total Runs')
+    #                     plt.title('Overall Most Expensive Bowler')
+    #                     plt.xlabel('Bowler')
+    #                     plt.ylabel('Total Runs')
 
-                        st.pyplot(fig, transparent=True)
-        ''', language='python')
+    #                     st.pyplot(fig, transparent=True)
+    #     ''', language='python')
 
     #######################################################################
     #####       Overwise Average Runs For Each Team Since 2008      #######
     #######################################################################
-    with st.expander('👉 Overwise Average Runs For Each Team Since 2008'):
-        corr = new_deliveriesDF.pivot_table(values='total_runs',
-                                            index='batting_team',
-                                            columns='over',
-                                            aggfunc='mean').fillna(0) * 6
+    # with st.expander('👉 Overwise Average Runs For Each Team Since 2008'):
+    #     corr = new_deliveriesDF.pivot_table(values='total_runs',
+    #                                         index='batting_team',
+    #                                         columns='over',
+    #                                         aggfunc='mean').fillna(0) * 6
 
-        for over in range(0, 20):
-            if over not in corr.columns:
-                corr[over] = 0
+    #     for over in range(0, 20):
+    #         if over not in corr.columns:
+    #             corr[over] = 0
 
-        corr = corr[sorted(corr.columns)]
+    #     corr = corr[sorted(corr.columns)]
 
-        corr_transposed = corr.T
+    #     corr_transposed = corr.T
 
-        fig = px.imshow(corr_transposed,
-                        color_continuous_scale="viridis",
-                        labels=dict(x="Team",
-                                    y="Over",
-                                    color="Runs"),
-                        x=corr_transposed.columns,
-                        y=corr_transposed.index)
+    #     fig = px.imshow(corr_transposed,
+    #                     color_continuous_scale="viridis",
+    #                     labels=dict(x="Team",
+    #                                 y="Over",
+    #                                 color="Runs"),
+    #                     x=corr_transposed.columns,
+    #                     y=corr_transposed.index)
 
-        fig.update_yaxes(tickvals=list(range(1, 21)),
-                         title_text='Overs',
-                         title_font_size=16)
+    #     fig.update_yaxes(tickvals=list(range(1, 21)),
+    #                      title_text='Overs',
+    #                      title_font_size=16)
 
-        fig.update_xaxes(title_text='Teams',
-                         title_font_size=16,
-                         tickangle=45)
+    #     fig.update_xaxes(title_text='Teams',
+    #                      title_font_size=16,
+    #                      tickangle=45)
 
-        st.plotly_chart(fig,
-                        transparent=True,
-                        use_container_width=True)
+    #     st.plotly_chart(fig,
+    #                     transparent=True,
+    #                     use_container_width=True)
 
     ########################################################################
     #######          Toss Decision Based On Top Venues         #############
@@ -699,69 +699,69 @@ def app():
     #############################################################################
     ###########         Average Runs By Teams In Last Over         ##############
     #############################################################################
-    with st.expander('👉 Average Runs Scored By Teams In Last Over'):
-        last_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
+    # with st.expander('👉 Average Runs Scored By Teams In Last Over'):
+    #     last_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
 
-        twenty_over_scores = last_over.groupby(
-            'batting_team')['total_runs'].sum().sort_values(ascending=False)
+    #     twenty_over_scores = last_over.groupby(
+    #         'batting_team')['total_runs'].sum().sort_values(ascending=False)
 
-        fig = px.bar(x=twenty_over_scores.values,
-                     y=twenty_over_scores.index,
-                     orientation='h',
-                     labels={'x': 'Total Runs', 'y': 'Teams'},
-                     color=twenty_over_scores.index,
-                     text=twenty_over_scores.values,
-                     color_discrete_sequence=px.colors.sequential.Viridis)
+    #     fig = px.bar(x=twenty_over_scores.values,
+    #                  y=twenty_over_scores.index,
+    #                  orientation='h',
+    #                  labels={'x': 'Total Runs', 'y': 'Teams'},
+    #                  color=twenty_over_scores.index,
+    #                  text=twenty_over_scores.values,
+    #                  color_discrete_sequence=px.colors.sequential.Viridis)
 
-        fig.update_traces(textposition='outside')
-        fig.update_layout(
-            yaxis=dict(
-                autorange="reversed",
-                showgrid=False
-            ),
-            xaxis=dict(
-                showgrid=False
-            ),
-            plot_bgcolor='rgba(0,0,0,0)',
-            showlegend=False,
-            title='Total Runs Scored By Teams in Last Over Since 2008'
-        )
+    #     fig.update_traces(textposition='outside')
+    #     fig.update_layout(
+    #         yaxis=dict(
+    #             autorange="reversed",
+    #             showgrid=False
+    #         ),
+    #         xaxis=dict(
+    #             showgrid=False
+    #         ),
+    #         plot_bgcolor='rgba(0,0,0,0)',
+    #         showlegend=False,
+    #         title='Total Runs Scored By Teams in Last Over Since 2008'
+    #     )
 
-        st.plotly_chart(fig, use_container_width=True)
+    #     st.plotly_chart(fig, use_container_width=True)
 
     ##############################################################################
     #####           Total Runs Scored By Teams In Last Over Since 2008       #####
     ##############################################################################
-    with st.expander('👉 Total Runs Scored By Teams In Last Over Since 2008'):
-        last_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
+    # with st.expander('👉 Total Runs Scored By Teams In Last Over Since 2008'):
+    #     last_over = new_deliveriesDF[new_deliveriesDF['over'] == 19]
 
-        twenty_over_scores = last_over.groupby('batting_team')[
-            'total_runs'].sum().sort_values(ascending=False)
+    #     twenty_over_scores = last_over.groupby('batting_team')[
+    #         'total_runs'].sum().sort_values(ascending=False)
 
-        fig = px.bar(x=twenty_over_scores.values,
-                     y=twenty_over_scores.index,
-                     orientation='h',
-                     labels={'x': 'Total Runs', 'y': 'Teams'},
-                     color=twenty_over_scores.index,
-                     text=twenty_over_scores.values,
-                     color_discrete_sequence=px.colors.sequential.Viridis,
-                     )
+    #     fig = px.bar(x=twenty_over_scores.values,
+    #                  y=twenty_over_scores.index,
+    #                  orientation='h',
+    #                  labels={'x': 'Total Runs', 'y': 'Teams'},
+    #                  color=twenty_over_scores.index,
+    #                  text=twenty_over_scores.values,
+    #                  color_discrete_sequence=px.colors.sequential.Viridis,
+    #                  )
 
-        plt.xticks(rotation=45,
-                   ha='right')
+    #     plt.xticks(rotation=45,
+    #                ha='right')
 
-        fig.update_traces(textposition='outside')
+    #     fig.update_traces(textposition='outside')
 
-        fig.update_layout(yaxis=dict(
-            autorange="reversed",
-            showgrid=False
-        ),
-            xaxis=dict(showgrid=False),
-            plot_bgcolor='rgba(0,0,0,0)',
-            showlegend=False)
+    #     fig.update_layout(yaxis=dict(
+    #         autorange="reversed",
+    #         showgrid=False
+    #     ),
+    #         xaxis=dict(showgrid=False),
+    #         plot_bgcolor='rgba(0,0,0,0)',
+    #         showlegend=False)
 
-        st.plotly_chart(fig,
-                        use_container_width=True)
+    #     st.plotly_chart(fig,
+    #                     use_container_width=True)
 
     ##############################################################################
     ###                    Total Runs Scored in Each Season                 ######
@@ -838,39 +838,39 @@ def app():
     #####################################################################
     ####              Teams with more than 200+ scores               ####
     #####################################################################
-    with st.expander('👉 Teams With More Than 200+ Scores'):
-        runs = new_deliveriesDF.groupby(['match_id', 'inning', 'batting_team', 'bowling_team'])[
-            'total_runs'].sum().reset_index()
+    # with st.expander('👉 Teams With More Than 200+ Scores'):
+    #     runs = new_deliveriesDF.groupby(['match_id', 'inning', 'batting_team', 'bowling_team'])[
+    #         'total_runs'].sum().reset_index()
 
-        runs_over_200_df = runs[runs['total_runs'] > 200]
+    #     runs_over_200_df = runs[runs['total_runs'] > 200]
 
-        runs_over_200 = runs_over_200_df['batting_team'].value_counts()
+    #     runs_over_200 = runs_over_200_df['batting_team'].value_counts()
 
-        fig = px.bar(
-            x=runs_over_200.values,
-            y=runs_over_200.index,
-            orientation='h',
-            labels={'x': 'Number of Instances', 'y': 'Teams'},
-            text=runs_over_200.values,
-            color=runs_over_200.index,
-            color_discrete_sequence=px.colors.sequential.Viridis
-        )
+    #     fig = px.bar(
+    #         x=runs_over_200.values,
+    #         y=runs_over_200.index,
+    #         orientation='h',
+    #         labels={'x': 'Number of Instances', 'y': 'Teams'},
+    #         text=runs_over_200.values,
+    #         color=runs_over_200.index,
+    #         color_discrete_sequence=px.colors.sequential.Viridis
+    #     )
 
-        fig.update_traces(textposition='outside')
-        fig.update_layout(
-            yaxis=dict(
-                autorange="reversed",
-                showgrid=False
-            ),
-            xaxis=dict(
-                showgrid=False
-            ),
-            plot_bgcolor='rgba(0,0,0,0)',
-            showlegend=False,
-            title='Most 200+ Runs Scored By Teams'
-        )
+    #     fig.update_traces(textposition='outside')
+    #     fig.update_layout(
+    #         yaxis=dict(
+    #             autorange="reversed",
+    #             showgrid=False
+    #         ),
+    #         xaxis=dict(
+    #             showgrid=False
+    #         ),
+    #         plot_bgcolor='rgba(0,0,0,0)',
+    #         showlegend=False,
+    #         title='Most 200+ Runs Scored By Teams'
+    #     )
 
-        st.plotly_chart(fig, use_container_width=True)
+    #     st.plotly_chart(fig, use_container_width=True)
 
     ###########################################################################
     ############ Lucky Venue For Teams ########################################
